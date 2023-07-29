@@ -1,0 +1,284 @@
+<%-include('includes/header-influencer')%>
+
+
+
+            <!-- cards start  -->
+            <!-- <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6"> -->
+                       
+            
+            <link href="/activecapm.css" rel="stylesheet">
+
+
+            <%-include('includes/flash')%>
+
+            <%campaigns.forEach(function(campaign){ %>
+                <div class="cards">
+                    <div class="card">
+                      <img class="card__image" src="img/airtel.png" alt="">
+                      <div class="card__content">
+                        <h6><%=campaign.campaignName%></h6>
+                         <p>start date: 12 feb </p>
+                         <p>status : Active</p>
+                         <p>End date :20 feb</p>
+                         <p>campaign maneger: mit shah </p>
+                         <p>Contact no.- 9833854628</p>
+                      </div>
+                      <div class="card__info">
+                        <div>
+                          
+                        </div>
+                        <div>
+                            <%=campaign.campaignName%> <a href="/raise-ticket-form/<%=campaign._id%>"><h6>Raise ticket </h6></a>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+            <% }) %>
+
+ 
+</div>
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+         <!-- Recent issues Start -->
+         <div class="container-fluid pt-3 px-3">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Recently raised issues</h6>
+                    <a href="raisedtickets.html">Show All</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <thead>
+                            <tr class="text-dark">
+                                <th scope="col">Sr.no</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Campaign</th>
+                                <th scope="col">Discription </th>
+                              <th scope="col">status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                        <td>1</td>
+                                <td>01 Jan 2022</td>
+                                <td>NIKE </td>
+                                <td>Campaign date was extended</td>
+                                <td>solved</td>
+                                
+                                
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>026 Jan 2022</td>
+                                <td>TCE</td>
+                                <td>Adequate time for campaign was not given </td>
+                                <td>pending </td>
+                                
+                                
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>01 feb 2022</td>
+                                <td>MCdonals</td>
+                                <td>Toppings in pizza are not as shown in campaign addvetisement</td>
+                                <td>pending</td>
+                              
+                                
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>20 feb 2022</td>
+                                <td>OPPO</td>
+                                <td>Co-workers are not work-friendly</td>
+                                <td>pending</td>
+                            
+                                
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>01 Jan 2022</td>
+                                <td> Tata sky</td>
+                                <td> Details regarding campaign were not clearly mentioned</td>
+                                <td>solved</td>
+                                
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid pt-3 px-3">
+            <div class="bg-light text-center rounded p-4">
+        <div class="row g-4">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Tickets Histroy</h6>
+                    <a href="raisedenquery.html">Show All</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <thead>
+                            <tr class="text-dark">
+                                <th scope="col">Sr.</th>
+                                <th scope="col">Ticket Title</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Campaign names</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% let counter=1%>
+                            <%   if(tickets.length) {%>
+                            <%tickets.forEach(function(ticket){%>
+                                <tr>
+                                    <td><%=counter%></td>
+                                    <td><%=ticket.ticketTitle%></td>
+                                    <td><%= ticket.raisedDate.getDate()%>-<%=ticket.raisedDate.getMonth() +1%>-<%=ticket.raisedDate.getFullYear()%></td>
+                                    <td>Campaign name </td>
+                                    <td><%=ticket.ticketStatus%></td>
+                                    <td><a class="btn btn-sm btn-primary" href="/view-ticket-details/<%=ticket._id%>">View Details</a></td>
+                                </tr>
+                                <%counter++%>
+                            <%})%>
+                            <%    } %>
+
+
+
+                          
+<!--                            
+                            <tr>
+                                <td>2</td>
+                                <td>Enquiry will be raised here</td>
+                                <td>26-03-2022</td>
+                                <td>Sai</td>
+                                <td>Campaign name</td>
+                                <td>Pending</td>
+                                <td><a class="btn btn-sm btn-primary" href="enquerydetails.html">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Enquiry will be raised here</td>
+                                <td>26-03-2022</td>
+                                <td>Atharva</td>
+                                <td>Campaign name</td>
+                                <td>Pending</td>
+                                <td><a class="btn btn-sm btn-primary" href="enquerydetails.html">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Enquiry will be raised here</td>
+                                <td>26-03-2022</td>
+                                <td>Meherin</td>
+                                <td>Campaign name</td>
+                                <td>Pending</td>
+                                <td><a class="btn btn-sm btn-primary" href="enquerydetails.html">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Enquiry will be raised here</td>
+                                <td>26-03-2022</td>
+                                <td>Shaikh Asif</td>
+                                <td>Campaign name</td>
+                                <td>Pending</td>
+                                <td><a class="btn btn-sm btn-primary" href="enquerydetails.html">View Details</a></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+         <!-- Recent Sales End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<%-include('includes/header-influencer')%>
+<%-include('includes/flash')%>
+
+
+
+
+<form action="/raise-ticket/<%=campaign._id%>" method="POST">
+
+    <input type="text" name="title" id="" placeholder="title">
+    <input type="text" name="body" id="" placeholder="body">
+
+    <label for="">Your Issue is about</label>
+    <select id="cars" name="category">
+        <option value="payment">Payment</option>
+        <option value="something">Something</option>
+        
+      </select>
+
+<button>Raise Ticket</button>
+</form>
+
